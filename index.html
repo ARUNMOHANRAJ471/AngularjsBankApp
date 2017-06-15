@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en-us" ng-app="weatherApp">
+<html lang="en-us">
     <head>
-        <title>AngularJS Weather Forecast SPA</title>
+        <title>AngularJS Banking SPA</title>
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <meta charset="UTF-8">
 
@@ -19,12 +19,11 @@
         <script src="https://code.angularjs.org/1.4.9/angular-route.min.js"></script>
         <script src="https://code.angularjs.org/1.4.9/angular-resource.min.js"></script>
         <script src="app.js"></script>
-        <script src="routes.js"></script>
-        <script src="services.js"></script>
-        <script src="controllers.js"></script>
-        <script src="directives.js"></script>
+        <!--<script src="routes.js"></script>
+        <script src="services.js"></script>-->
+        <!--<script src="directives.js"></script>-->
     </head>
-    <body>
+    <body ng-app="myApp" ng-controller="loginController">
 
         <header>
 			<nav class="navbar navbar-default">
@@ -36,19 +35,20 @@
 			</nav>
 		</header>
 
-        <div class="container">
+        <div class="container" ng-init="emailData='arun'">
           <form>
               <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input type="text" ng-model="emailData" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                 </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <input type="password" ng-model="passwordData" class="form-control" id="exampleInputPassword1" placeholder="Password">
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
           </form>
+          <button ng-click="redirectToHome()" class="btn btn-primary">Submit</button>
 		    </div>
+        <script src="controllers.js"></script>
 
     </body>
 </html>
