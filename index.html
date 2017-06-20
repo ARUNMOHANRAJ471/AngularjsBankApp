@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
 
         <!-- load bootstrap and fontawesome via CDN -->
-        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
         <style>
             html, body, input, select, textarea
             {
@@ -46,7 +46,12 @@
                 <input type="password" ng-model="passwordData" class="form-control" id="exampleInputPassword1" placeholder="Password">
               </div>
           </form>
-          <button ng-click="redirectToHome()" class="btn btn-primary">Submit</button>
+          <button ng-click="redirectToHome()" class="btn btn-primary">Submit</button><br/><br/>
+          <div  ng-show = "showWarning.status">
+          <div class="alert alert-danger">
+            <strong>Credentials mismatch!</strong> Check your username or password
+          </div>
+        </div>
 		    </div>
         <script src="controllers.js"></script>
 
