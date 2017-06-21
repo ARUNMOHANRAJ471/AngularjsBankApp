@@ -1,24 +1,27 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="well well-sm">
-                <div class="row">
-                    <div class="col-sm-4 col-md-4">
-                        <img ng-src="{{personalData[0].image}}" alt="" style="width:100px;height:100px;border-radius:6px" class="img-rounded img-responsive" />
+                    <div class="col-sm-4 col-md-4 col-xs-4">
+                        <img ng-src="{{personalData[0].image}}" alt="" style="width:200px;height:200px;border-radius:6px" class="img-rounded img-responsive" />
                     </div>
-                    <div class="col-sm-8 col-md-8">
-                        <h4>
-                            {{personalData[0].name}}</h4>
-                        <small><cite>{{personalData[0].address}} <i class="glyphicon glyphicon-map-marker">
-                        </i></cite></small>
-                        <p>
-                            {{personalData[0].mail}}
-                            <br />
-                            {{personalData[0].dob}}</p>
-                        <!-- Split button -->
+                    <div class="col-sm-8 col-md-8 col-xs-8" style="margin-left: 0px;">
+                      <form>
+                        <div class="form-group">
+                        <label for="name">Name:</label>
+                          <input type="text" class="form-control" id="name" value={{personalData[0].name}} disabled name="name">
                         </div>
-                </div>
-            </div>
-        </div>
+                        <div class="form-group">
+                        <label for="address">Address</label>
+                          <input type="text" class="form-control" id="address" value={{personalData[0].address}} disabled name="address">
+                        </div>
+                        <div class="form-group">
+                        <label for="email">Mail ID:</label>
+                          <input type="text" class="form-control" id="email" value={{personalData[0].mail}} disabled name="email">
+                        </div>
+                        <div class="form-group">
+                        <label for="dob">DOB:</label>
+                          <input type="text" class="form-control" id="dob" value={{personalData[0].dob}} disabled name="dob">
+                        </div>
+                    </form>
+                  </div>
     </div>
 </div>

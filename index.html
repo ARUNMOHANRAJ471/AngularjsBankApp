@@ -6,21 +6,13 @@
         <meta charset="UTF-8">
 
         <!-- load bootstrap and fontawesome via CDN -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
-        <style>
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+      <style>
             html, body, input, select, textarea
             {
                 font-size: 1.05em !important;
             }
-            body{padding-top:30px;}
 
-            .glyphicon {  margin-bottom: 10px;margin-right: 10px;}
-
-            small {
-            display: block;
-            line-height: 1.428571429;
-            color: #999;
-            }
 
         </style>
 
@@ -35,17 +27,26 @@
         <!--<script src="directives.js"></script>-->
     </head>
     <body ng-app="myApp" ng-controller="loginController">
-
-        <header>
+    <header>
 			<nav class="navbar navbar-default">
 			<div class="container">
 				<div class="navbar-header">
 					<a class="navbar-brand" href="#">AngularJS Banking App</a>
 				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#/personal"><i class="fa fa-home"></i> Profile</a></li>
+				</ul>
 			</div>
 			</nav>
 		</header>
-    <ng-view></ng-view>
+
+
+    <div class="container">
+
+            <div ng-view></div>
+
+		</div>
     <script src="controllers.js"></script>
     </body>
 </html>
