@@ -1,10 +1,8 @@
 app.controller("loginController",function($scope, $log){
   $scope.showWarning = { status: false};
   $scope.redirectToHome = function (){
-    console.log("redirect function");
 
   if(($scope.emailData == "arun@example.com" && $scope.passwordData == "123") || ($scope.emailData == "bala@example.com" && $scope.passwordData == "123")){
-    console.log("redirect if",$scope.emailData);
     $log.email = $scope.emailData;
     window.location = "/#/personal";
   }else{
@@ -14,7 +12,6 @@ app.controller("loginController",function($scope, $log){
 });
 
 app.controller("personalController",function($scope, $log){
-  console.log($log.email);
   var personalDataCollection = [
     {
       name: "Arun Mohan Raj B",
@@ -27,20 +24,22 @@ app.controller("personalController",function($scope, $log){
       address:"TamilNadu, India",
       mail:"bala@example.com",
       dob:"oct 17, 1998",
-      image: "http://lh5.ggpht.com/_S0f-AWxKVdM/S5TpU6kRmUI/AAAAAAAAL4Y/wrjx3_23kw4/d_silhouette%5B2%5D.jpg?imgmax=800"
+      image: "http://cdn.wallpapersafari.com/55/83/BDgveA.jpg"
     }];
 
     var personalDataX = [];
+    var accountHolders = [];
     for (var i = 0; i < personalDataCollection.length; i++) {
       if(personalDataCollection[i].mail == $log.email) {
         personalDataX.push(personalDataCollection[i]);
       }
+      accountHolders.push(personalDataCollection[i].mail);
     }
     $scope.personalData = personalDataX;
+    $log.accountHoldersData = accountHolders;
 });
 
 app.controller("accountController",function($scope,$log){
-  console.log("checking "+$scope.emailData +" ... "+$scope.passwordData);
 
   var accountDataCollection = [
     {
@@ -62,8 +61,18 @@ app.controller("accountController",function($scope,$log){
         var accountDataX = [];
         for (var i = 0; i < accountDataCollection.length; i++) {
           if(accountDataCollection[i].mail == $log.email) {
-            accountDataX.push(personalDataCollection[i]);
+            accountDataX.push(accountDataCollection[i]);
           }
         }
         $scope.accountData = accountDataX;
+});
+app.controller("depositController",function($scope, $log){
+  $scope.showMessage = {status: false};
+  $scope.typeOfDeposit = ["pay-in-slip", "cheque"];
+   $scope.typeOfPerson = $log.accountHoldersData;
+   $scope.alertForDeposit = function(){
+     if($scope.amountDeposited != undefined){
+     $scope.showMessage.status = true;
+   }
+ }
 });
